@@ -6,6 +6,7 @@ import { Footer } from './components/Footer';
 import { Header } from './components/Header';
 import { Cines } from './Cines';
 import { Pelicula } from './Pelicula';
+import { Cine } from './Cine';
 
 
 function App() {
@@ -21,6 +22,7 @@ function App() {
           <Route path='/estrenos' element={<Peliculas />}></Route>
           <Route path='/cines' element={<Cines />}></Route>
           <Route path='/peliculas/:id' element={<Pelicula />}></Route>
+          <Route path='/cines/:id' element={<Cine />}></Route>
         </Routes>
 
 

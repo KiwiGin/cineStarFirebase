@@ -17,6 +17,7 @@ export function Pelicula() {
                 const temporalArray = [];
                 querySnapshot.forEach((doc) => {
                     temporalArray.push(doc.data());
+                    
                 });
                 if(id){
                     setListaPelicula(temporalArray.filter((peli) => peli.id === id));

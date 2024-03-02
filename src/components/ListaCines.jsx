@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom"
 
 export function ListaCines({ listaCine }) {
     return (
@@ -12,9 +13,9 @@ export function ListaCines({ listaCine }) {
                             <span>{cine.Direccion} - {cine.Detalle}<br /><br />Teléfono: {cine.Telefonos} anexo 865</span>
                         </div>
                         <br />
-                        <a href="/cine">
+                        <Link to={`/cines/${cine.id}`}>
                             <img src="src\img\varios\ico-info2.png" width="150" height="40" />
-                        </a>
+                        </Link>
                     </div>
                 )
             })}
