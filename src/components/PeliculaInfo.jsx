@@ -1,6 +1,5 @@
 
 export function PeliculaInfo({info}) {
-    console.log(info);
     return (
         <>
             {info.map((pelicula) => {

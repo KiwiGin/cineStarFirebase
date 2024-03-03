@@ -21,11 +21,9 @@ function App() {
           <Route path='/cartelera' element={<Peliculas />}></Route>
           <Route path='/estrenos' element={<Peliculas />}></Route>
           <Route path='/cines' element={<Cines />}></Route>
-          <Route path='/peliculas/:id' element={<Pelicula />}></Route>
           <Route path='/cines/:id' element={<Cine />}></Route>
+          <Route path='/peliculas/:id' element={<Pelicula />}></Route>
         </Routes>
-
-
         <Footer></Footer>
       </BrowserRouter>
 

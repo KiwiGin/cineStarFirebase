@@ -12,7 +12,7 @@ export function Header() {
         		<a href="http://www.cinestar.com.pe/contactenos/#contenido_titulo" className="anchorLink">Contáctenos</a>
 			</nav>
 			<div className="area-logo">
-				<a to="/"><img src="\src\img\varios\logo-cinestar.png"/></a>
+				<Link to="/"><img src="\src\img\varios\logo-cinestar.png"/></Link>
 			</div>
 			<nav className="menu">
 				<span className="img-social">

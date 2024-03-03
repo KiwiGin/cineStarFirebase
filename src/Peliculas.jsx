@@ -1,4 +1,4 @@
-import { Lista } from './components/Lista'
+import { ListaPeliculas } from './components/ListaPeliculas'
 import './firebaseConfig';
 import { getDocs, collection } from 'firebase/firestore'
 import { db } from './firebaseConfig';
@@ -6,9 +6,9 @@ import { useEffect, useState } from 'react';
 
 export function Peliculas() {
     const [lista, setLista] = useState([])
+    const parametroRuta = window.location.pathname;
 
     useEffect(() => {
-        console.log('renderize just once')
         const fetchPeliculas = async () => {
             try {
                 const querySnapshot = await getDocs(collection(db, 'peliculas'));
@@ -16,14 +16,21 @@ export function Peliculas() {
                 querySnapshot.forEach((doc) => {
                     temporalArray.push(doc.data());
                 });
-                setLista(temporalArray);
+                if (parametroRuta === '/cartelera') {
+                    const peliculasFiltradas = temporalArray.filter(pelicula => pelicula.id >= 1 && pelicula.id <= 17);
+                    setLista(peliculasFiltradas);
+                }
+                if (parametroRuta === '/estrenos') {
+                    const peliculasFiltradas = temporalArray.filter(pelicula => pelicula.id >= 18 && pelicula.id <= 20);
+                    setLista(peliculasFiltradas);
+                }
             } catch (error) {
-                console.error('Error fetching documents: ', error);
+                console.error('Error: ', error);
             }
         };
 
         fetchPeliculas();
-    }, []);
+    }, [parametroRuta]);
     return (
         <>
             <div className="contenido">
@@ -33,7 +40,7 @@ export function Peliculas() {
                 </div>
                 <div className="contenido-interno" >
                     <br /><h1>Cartelera</h1><br />
-                    <Lista lista={lista}></Lista>
+                    <ListaPeliculas lista={lista}></ListaPeliculas>
                 </div>
             </div>
             <div className="clearbox"><br /></div>

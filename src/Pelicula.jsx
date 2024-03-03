@@ -7,10 +7,9 @@ import { useParams } from 'react-router-dom';
 export function Pelicula() {
     const [listaPelicula, setListaPelicula] = useState([])
     const id = useParams().id
-    console.log(id);
 
     useEffect(() => {
-        console.log('renderize cines just once')
+        console.log('renderize pelicula just once')
         const fetchPelicula = async () => {
             try {
                 const querySnapshot = await getDocs(collection(db, 'peliculas'));
@@ -23,7 +22,7 @@ export function Pelicula() {
                     setListaPelicula(temporalArray.filter((peli) => peli.id === id));
                 }
             } catch (error) {
-                console.error('Error fetching documents: ', error);
+                console.error('Error: ', error);
             }
         };
 
@@ -38,8 +37,6 @@ export function Pelicula() {
                 </div>
                 <div className="contenido-interno" >
                     <br /><h1>Cartelera</h1><br />
-                    {console.log('objeto')}
-                    {console.log(listaPelicula)}
                     <PeliculaInfo info={listaPelicula}></PeliculaInfo>
                 </div>
             </div>

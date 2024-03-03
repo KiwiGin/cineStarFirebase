@@ -8,7 +8,6 @@ export function Cines() {
     const [listaCine, setListaCine] = useState([])
 
     useEffect(() => {
-        console.log('renderize cines just once')
         const fetchCines = async () => {
             try {
                 const querySnapshot = await getDocs(collection(db, 'cines'));
@@ -18,7 +17,7 @@ export function Cines() {
                 });
                 setListaCine(temporalArray);
             } catch (error) {
-                console.error('Error fetching documents: ', error);
+                console.error('Error: ', error);
             }
         };
 

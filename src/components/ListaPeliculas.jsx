@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 
-export function Lista({ lista }) {
+export function ListaPeliculas({ lista }) {
     return (
         <>
             {lista.map((pelicula) => (
